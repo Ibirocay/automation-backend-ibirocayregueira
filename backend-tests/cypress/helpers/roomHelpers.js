@@ -28,7 +28,7 @@ function getAllRoomsRequest(cy){
                 'Content-Type': 'application/json'
             },
         }).then((response =>{
-            const responseAsString = JSON.stringify(response)
+            const responseAsString = JSON.stringify(response.body)
             cy.log(responseAsString)
         }))
     }))

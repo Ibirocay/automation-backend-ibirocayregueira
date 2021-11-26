@@ -64,6 +64,7 @@ function getAllBillsRequest(cy){
             },
         }).then((response =>{
             const responseAsString = JSON.stringify(response.body)
+            cy.log(responseAsString)
         }))
     }))
 }
@@ -109,9 +110,6 @@ function updateBillRequest(cy){
             let upDate = response.body[response.body.length -1].created
             let updatedBill = updateBill(lastId, upDate)
 
-            cy.log(lastId)
-            cy.log(upDate)
-
             cy.request({
                 method: "PUT",
                 url: ENDPOINT_GET_BILL +lastId,
@@ -143,8 +141,6 @@ function deleteBillRequest (cy){
         }).then((response =>{
         // DELETE request to remove last bill    
             let lastId = response.body[response.body.length -1].id
-            cy.log(lastId)
-            cy.log(JSON.stringify(response))
 
                 cy.request({
                 method: "DELETE",
@@ -176,7 +172,7 @@ function createDeleteBillRequest(cy){
             body:fakeBill
 
         }).then((response =>{
-             const responseAsString = JSON.stringify(response)
+             const responseAsString = JSON.stringify(response.body)
              expect(responseAsString).to.have.string(fakeBill.value)
         }))
 
@@ -211,8 +207,6 @@ function createUpdateDeleteBillRequest(cy){
     }))
     
 }
-
-
 
 module.exports = {
     createBill, 
