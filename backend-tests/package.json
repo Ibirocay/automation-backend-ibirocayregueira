@@ -1,0 +1,19 @@
+{
+  "name": "backend-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "-": "^0.0.1",
+    "cypress": "^8.7.0"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
+  }
+}
